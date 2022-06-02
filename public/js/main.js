@@ -7,9 +7,15 @@ let liste = document.getElementById("liste")
 // Tâche à faire
 let tache = document.querySelector("input")
 
+// Touche ENTER
+tache.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        ajout()
+    }
+})
 
-
-newTache.addEventListener("click", () => {
+// AJOUT D'UNE LIGNE DE TACHE LORSQU ON APPUIE SUR LE BOUTON AJOUTER
+function ajout() {
     // Batch création
     let ligne = document.createElement("div")
 
@@ -37,7 +43,7 @@ newTache.addEventListener("click", () => {
     ligne.appendChild(icones)
 
     liste.appendChild(ligne)
-  
+
     // Valeur du input donnée au nom de la tâche
     texte.innerHTML = tache.value;
     // Supprimer la valeur du input
@@ -49,5 +55,22 @@ newTache.addEventListener("click", () => {
     icone1.setAttribute("class", "fa-solid fa-circle-check")
     icone2.setAttribute("class", "fa-solid fa-pen-to-square")
     icone3.setAttribute("class", "fa-solid fa-trash-can")
+}
+
+
+let ligne = document.querySelectorAll(".ligne")
+let check = document.querySelectorAll("button")
+console.log(check)
+console.log(ligne)
+
+ligne.forEach(i => {
+    i.addEventListener("click", () => {
+        if (i.getAttribute("class") !== "done") {
+            i.classList.add("done")
+        } else {
+            i.classList.remove("done")
+        }
+    })
 })
+
 
