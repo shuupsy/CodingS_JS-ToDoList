@@ -42,6 +42,12 @@ hr {
     background-color: #E4E4E4;
     border: none;
 }
+
+button {
+    border: none;
+    background-color: #E4E4E4;
+}
+
 .ajout button, .etat button {
     color: white;
     background-color: #4C00FF;
@@ -49,9 +55,7 @@ hr {
     border-radius: 3px;
 }
 
-button {
-    border: none;
-}
+
 
 .fa-circle-check {
     color: #60C5FF;
