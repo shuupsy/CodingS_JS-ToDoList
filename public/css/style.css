@@ -23,5 +23,7 @@ header {
 
 main {
     background-color: white;
-    height: 50vh;
+    border-radius: 5px;
+    border-top: 3px solid #60C5FF;
+    padding: 2.5vh;
 }
