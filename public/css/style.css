@@ -42,12 +42,15 @@ hr {
     background-color: #E4E4E4;
     border: none;
 }
-button {
+.ajout button, .etat button {
     color: white;
     background-color: #4C00FF;
     padding: 5px 10px;
-    border: none;
     border-radius: 3px;
+}
+
+button {
+    border: none;
 }
 
 .fa-circle-check {
