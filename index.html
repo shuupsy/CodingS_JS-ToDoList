@@ -7,20 +7,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link CSS -->
     <link rel="stylesheet" href="public/css/style.css">
+    <!-- Link Fontawesome -->
+    <script src="https://kit.fontawesome.com/117a0530c7.js" crossorigin="anonymous"></script>
     <!-- Titre document -->
     <title>TO-DO LIST</title>
 </head>
 
 <body>
-<!-- Header -->
-<header>
+    <!-- Header -->
+    <header>
+        <h1>TodoList</h1>
+    </header>
 
-</header>
+    <!-- TO DO -->
+    <main>
+        <section class="ajout">
+            <p>Ajouter une tâche !</p>
+            <input type="text" id="tache">
+            <button>Ajouter</button>
+        </section>
+        <hr>
+        <div class="etat">
+            <button>A faire</button>
+            <button>Terminé</button>
+            <button>Tous</button>
+        </div>
 
-<!-- TO DO -->
-<main>
-    
-</main>
+        <section class="liste">
+            <div class="ligne">
+                <p>Tâche 1</p>
+                <div class="icones">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+            </div>
+            <div class="ligne">
+                <p>Tâche 2</p>
+                <div class="icones">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+            </div>
+            <div class="ligne">
+                <p>Tâche 3</p>
+                <div class="icones">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="public/js/main.js"></script>
 </body>
