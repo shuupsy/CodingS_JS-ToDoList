@@ -27,3 +27,26 @@ main {
     border-top: 3px solid #60C5FF;
     padding: 2.5vh;
 }
+
+button {
+    color: white;
+    background-color: #4C00FF;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+}
+.fa-circle-check {
+    color: #60C5FF;
+}
+
+.fa-pen-to-square {
+    color: #FFC108;
+}
+
+.fa-floppy-disk {
+    color: #FFC108;
+}
+
+.fa-trash-can {
+    color: #DC3645;
+}
