@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    list-style: none;
+    box-sizing: border-box;
 }
 
 body {
@@ -25,9 +27,21 @@ main {
     background-color: white;
     border-radius: 5px;
     border-top: 3px solid #60C5FF;
-    padding: 2.5vh;
+    padding: 0 2.5vh 2.5vh;
 }
 
+p {
+    margin: 1vh 0;
+}
+input {
+    border: 1px solid #E4E4E4;
+    height: 25px;
+}
+hr {
+    height: 3px;
+    background-color: #E4E4E4;
+    border: none;
+}
 button {
     color: white;
     background-color: #4C00FF;
@@ -35,18 +49,42 @@ button {
     border: none;
     border-radius: 3px;
 }
+
 .fa-circle-check {
     color: #60C5FF;
 }
 
-.fa-pen-to-square {
-    color: #FFC108;
-}
-
+.fa-pen-to-square,
 .fa-floppy-disk {
     color: #FFC108;
 }
 
 .fa-trash-can {
     color: #DC3645;
+}
+
+section {
+    margin: 2vh 0;
+}
+
+.etat {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+}
+
+.ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E4E4E4;
+    margin: 1vh 0;
+    height: 5vh;
+    padding: 0 4vh 0 1vh;
+    border-radius: 3px;
+}
+
+.icones {
+    display: flex;
+    gap: 3rem;
 }
