@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #E4E4E4;
+    font-family: sans-serif;
+}
+
+body {
+    width: 95%;
+    margin: 0 auto;
+}
+
+h1 {
+    color: white;
+    background-color: #60C5FF;
+    border-radius: 5px;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    padding: 2vh;
+    margin: 3vh 0;
+}
