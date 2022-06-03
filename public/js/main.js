@@ -56,17 +56,17 @@ function ajout() {
     icone1.setAttribute("class", "fa-solid fa-circle-check")
     icone2.setAttribute("class", "fa-solid fa-pen-to-square")
     icone3.setAttribute("class", "fa-solid fa-trash-can")
-    console.log(liste)
+    console.log("Nouvelle tâche créee!")
 }
 
-// Function supprimer
-// Addeventlisteners
+// Function delete + done
 liste.addEventListener("click", check)
-
 
 function check(e) {
     let item = e.target
-    let todo = item.parentElement;
+    let todo = item.parentElement.parentElement
+    let todo2 = item.parentElement
+
     switch (item.classList[1]) {
         case "fa-trash-can":
             // Supprime la ligne
@@ -74,16 +74,21 @@ function check(e) {
             break;
         case "fa-circle-check" :
             // Change la bgcolor en vert
-            todo.style.backgroundColor = "#28A745";
+            todo.classList.toggle("done")
             break;
         case "fa-pen-to-square" :
             // Change la tâche en input
             let input = document.createElement("input")
-            todo.previousSibling.replaceWith(input)
+            todo2.previousSibling.replaceWith(input)
             // Changer l'icone en disquette
             item.setAttribute("class","fa-solid fa-floppy-disk")
             // Cacher les autres icônes
             item.previousSibling.style.visibility = "hidden"
             item.nextSibling.style.visibility = "hidden"
+    }
+    
+    // Fonction edit
+    if (item.classList[1] = "fa-floppy-disk") {
+
     }
 }
