@@ -7,25 +7,20 @@ let liste = document.getElementById("liste")
 // Tâche à faire
 let tache = document.querySelector("input")
 
-// Touche ENTER à la place d'appuyer sur le bouton 
+// Touche ENTER à la place d'appuyer sur le bouton
 tache.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         ajout()
     }
 })
 
-
-// AJOUT D'UNE LIGNE DE TACHE LORSQU ON APPUIE SUR LE BOUTON AJOUTER
+// AJOUT D'UNE LIGNE LORSQU ON APPUIE SUR LE BOUTON AJOUTER
 function ajout() {
     // Batch création
     let ligne = document.createElement("div")
 
     let texte = document.createElement("p")
     let icones = document.createElement("div")
-
-    // let btn1 = document.createElement("button")
-    // let btn2 = document.createElement("button")
-    // let btn3 = document.createElement("button")
 
     let icone1 = document.createElement("i")
     let icone2 = document.createElement("i")
@@ -35,10 +30,6 @@ function ajout() {
     icones.appendChild(icone1)
     icones.appendChild(icone2)
     icones.appendChild(icone3)
-
-    // icones.appendChild(btn1)
-    // icones.appendChild(btn2)
-    // icones.appendChild(btn3)
 
     ligne.appendChild(texte)
     ligne.appendChild(icones)
@@ -67,6 +58,10 @@ function check(e) {
     let todo = item.parentElement
     let todoParent = item.parentElement.parentElement
 
+    let titre = todo.previousSibling
+    let input = document.createElement("input")
+    let texte = document.createElement("p")
+
     switch (item.classList[1]) {
         case "fa-trash-can":
             // Supprime la ligne
@@ -77,20 +72,33 @@ function check(e) {
             todoParent.classList.toggle("done")
             break;
         case "fa-pen-to-square":
-            // Change la tâche en input
-            let input = document.createElement("input")
-            todo.previousSibling.replaceWith(input)
+            // Copier la valeur du titre en input
+            input.value = titre.innerText
+            titre.replaceWith(input)
+            input.setAttribute("id", "edit")
+            console.log(tache)
             // Changer l'icone en disquette
             item.setAttribute("class", "fa-solid fa-floppy-disk");
+            // Cacher les icônes
+            item.previousSibling.style.visibility = "hidden"
+            item.nextSibling.style.visibility = "hidden";
+            break;
+
         case "fa-floppy-disk":
-            item.previousSibling.style.display = "none"
-            item.nextSibling.style.display = "none"
+                // Chercher le input actuel
+                let newTitre = document.getElementById("edit")
+                // Le input reprend la valeur du titre précédent
+                texte.innerText = newTitre.value
+                // Remplacement input -> texte
+                newTitre.replaceWith(texte)
+                // Changement des icônes
+                item.setAttribute("class", "fa-solid fa-pen-to-square");
+                item.previousSibling.style.visibility = "visible"
+                item.nextSibling.style.visibility = "visible";
     }
-    item.addEventListener("click", () => {
-        item.previousSibling.style.display = "block"
-        item.nextSibling.style.display = "block"
-    })
 }
+
+
 
 // Filtrer la liste
 let current = document.getElementById("current")
@@ -118,7 +126,6 @@ current.addEventListener("click", () => {
         }
     })
 })
-
 
 // Toutes les tâches
 all.addEventListener("click", () => {
