@@ -91,3 +91,35 @@ function check(e) {
         item.nextSibling.style.display = "block"
     })
 }
+
+// Filtrer la liste
+let current = document.getElementById("current")
+let done = document.getElementById("done")
+let all = document.getElementById("all")
+
+done.addEventListener("click", () => {
+    let items = document.querySelectorAll(".ligne")
+    items.forEach(s => {
+        s.style.display = "none"
+        if (s.classList.contains('done')) {
+            s.style.display = "flex"
+        }
+    })
+})
+
+current.addEventListener("click", () => {
+    let items = document.querySelectorAll(".ligne")
+    items.forEach(s => {
+        s.style.display = "none"
+        if (s.classList.contains('done') == false) {
+            s.style.display = "flex"
+        }
+    })
+})
+
+all.addEventListener("click", () => {
+    let items = document.querySelectorAll(".ligne")
+    items.forEach(s => {
+        s.style.display = "flex"
+    })
+})
