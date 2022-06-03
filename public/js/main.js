@@ -97,6 +97,7 @@ let current = document.getElementById("current")
 let done = document.getElementById("done")
 let all = document.getElementById("all")
 
+// Tâches finies
 done.addEventListener("click", () => {
     let items = document.querySelectorAll(".ligne")
     items.forEach(s => {
@@ -107,6 +108,7 @@ done.addEventListener("click", () => {
     })
 })
 
+// Tâches à faire
 current.addEventListener("click", () => {
     let items = document.querySelectorAll(".ligne")
     items.forEach(s => {
@@ -117,6 +119,8 @@ current.addEventListener("click", () => {
     })
 })
 
+
+// Toutes les tâches
 all.addEventListener("click", () => {
     let items = document.querySelectorAll(".ligne")
     items.forEach(s => {
