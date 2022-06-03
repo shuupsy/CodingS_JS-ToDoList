@@ -64,31 +64,30 @@ liste.addEventListener("click", check)
 
 function check(e) {
     let item = e.target
-    let todo = item.parentElement.parentElement
-    let todo2 = item.parentElement
+    let todo = item.parentElement
+    let todoParent = item.parentElement.parentElement
 
     switch (item.classList[1]) {
         case "fa-trash-can":
             // Supprime la ligne
-            todo.parentElement.remove();
+            todoParent.remove();
             break;
-        case "fa-circle-check" :
+        case "fa-circle-check":
             // Change la bgcolor en vert
-            todo.classList.toggle("done")
+            todoParent.classList.toggle("done")
             break;
-        case "fa-pen-to-square" :
+        case "fa-pen-to-square":
             // Change la tâche en input
             let input = document.createElement("input")
-            todo2.previousSibling.replaceWith(input)
+            todo.previousSibling.replaceWith(input)
             // Changer l'icone en disquette
-            item.setAttribute("class","fa-solid fa-floppy-disk")
-            // Cacher les autres icônes
-            item.previousSibling.style.visibility = "hidden"
-            item.nextSibling.style.visibility = "hidden"
+            item.setAttribute("class", "fa-solid fa-floppy-disk");
+        case "fa-floppy-disk":
+            item.previousSibling.style.display = "none"
+            item.nextSibling.style.display = "none"
     }
-    
-    // Fonction edit
-    if (item.classList[1] = "fa-floppy-disk") {
-
-    }
+    item.addEventListener("click", () => {
+        item.previousSibling.style.display = "block"
+        item.nextSibling.style.display = "block"
+    })
 }
