@@ -66,15 +66,25 @@ liste.addEventListener("click", check)
 
 function check(e) {
     let item = e.target
-    let todo = item.parentElement.parentElement;
+    let todo = item.parentElement;
     switch (item.classList[1]) {
         case "fa-trash-can":
-            todo.remove();
+            // Supprime la ligne
+            todo.parentElement.remove();
             break;
         case "fa-circle-check" :
+            // Change la bgcolor en vert
             todo.style.backgroundColor = "#28A745";
             break;
-
+        case "fa-pen-to-square" :
+            // Change la tâche en input
+            let input = document.createElement("input")
+            todo.previousSibling.replaceWith(input)
+            // Changer l'icone en disquette
+            item.setAttribute("class","fa-solid fa-floppy-disk")
+            // Cacher les autres icônes
+            item.previousSibling.style.visibility = "hidden"
+            item.nextSibling.style.visibility = "hidden"
     }
     // if (item.classList[1] === "fa-trash-can") {
     //     let todo = item.parentElement.parentElement
