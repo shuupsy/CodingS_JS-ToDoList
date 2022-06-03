@@ -1,5 +1,5 @@
 // Bouton ajouter
-let newTache = document.getElementById("ajout")
+let nouvelleTache = document.getElementById("ajout")
 
 // Section liste
 let liste = document.getElementById("liste")
@@ -7,12 +7,13 @@ let liste = document.getElementById("liste")
 // Tâche à faire
 let tache = document.querySelector("input")
 
-// Touche ENTER
+// Touche ENTER à la place d'appuyer sur le bouton 
 tache.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         ajout()
     }
 })
+
 
 // AJOUT D'UNE LIGNE DE TACHE LORSQU ON APPUIE SUR LE BOUTON AJOUTER
 function ajout() {
@@ -22,22 +23,22 @@ function ajout() {
     let texte = document.createElement("p")
     let icones = document.createElement("div")
 
-    let btn1 = document.createElement("button")
-    let btn2 = document.createElement("button")
-    let btn3 = document.createElement("button")
+    // let btn1 = document.createElement("button")
+    // let btn2 = document.createElement("button")
+    // let btn3 = document.createElement("button")
 
     let icone1 = document.createElement("i")
     let icone2 = document.createElement("i")
     let icone3 = document.createElement("i")
 
     // Appendchild
-    btn1.appendChild(icone1)
-    btn2.appendChild(icone2)
-    btn3.appendChild(icone3)
+    icones.appendChild(icone1)
+    icones.appendChild(icone2)
+    icones.appendChild(icone3)
 
-    icones.appendChild(btn1)
-    icones.appendChild(btn2)
-    icones.appendChild(btn3)
+    // icones.appendChild(btn1)
+    // icones.appendChild(btn2)
+    // icones.appendChild(btn3)
 
     ligne.appendChild(texte)
     ligne.appendChild(icones)
@@ -55,22 +56,28 @@ function ajout() {
     icone1.setAttribute("class", "fa-solid fa-circle-check")
     icone2.setAttribute("class", "fa-solid fa-pen-to-square")
     icone3.setAttribute("class", "fa-solid fa-trash-can")
+    console.log(liste)
 }
 
-
-let ligne = document.querySelectorAll(".ligne")
-let check = document.querySelectorAll("button")
-console.log(check)
-console.log(ligne)
-
-ligne.forEach(i => {
-    i.addEventListener("click", () => {
-        if (i.getAttribute("class") !== "done") {
-            i.classList.add("done")
-        } else {
-            i.classList.remove("done")
-        }
-    })
-})
+// Function supprimer
+// Addeventlisteners
+liste.addEventListener("click", check)
 
 
+function check(e) {
+    let item = e.target
+    let todo = item.parentElement.parentElement;
+    switch (item.classList[1]) {
+        case "fa-trash-can":
+            todo.remove();
+            break;
+        case "fa-circle-check" :
+            todo.style.backgroundColor = "#28A745";
+            break;
+
+    }
+    // if (item.classList[1] === "fa-trash-can") {
+    //     let todo = item.parentElement.parentElement
+    //     todo.remove()
+    // } 
+}
