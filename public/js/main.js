@@ -86,8 +86,4 @@ function check(e) {
             item.previousSibling.style.visibility = "hidden"
             item.nextSibling.style.visibility = "hidden"
     }
-    // if (item.classList[1] === "fa-trash-can") {
-    //     let todo = item.parentElement.parentElement
-    //     todo.remove()
-    // } 
 }
